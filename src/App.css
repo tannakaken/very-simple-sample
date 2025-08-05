@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -28,15 +37,45 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
 
+/* VFXエフェクトが適用される要素のスタイリング */
 .card {
   padding: 2em;
+  margin: 2em 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .read-the-docs {
   color: #888;
+  margin-top: 2em;
+}
+
+/* エフェクトの無効化オプション（アクセシビリティ対応） */
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    animation: none;
+  }
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+  
+  .logo {
+    height: 4em;
+    padding: 1em;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
 }
